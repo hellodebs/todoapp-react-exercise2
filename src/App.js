@@ -1,12 +1,11 @@
 import "./App.css";
-import Input from "./components/Input.js";
-import Button from "./components/Button.js";
+import InputBar from "./components/InputBar.js";
 import ListItems from "./components/ListItems.js";
 import { useState } from "react";
+import Header from "./components/Header.js";
 
 function App() {
-  const [todo, setTodo] = useState([]);
-  const todoItem = [
+  const [todo, setTodo] = useState([
     {
       id: 1,
       todo: "clean",
@@ -22,15 +21,30 @@ function App() {
       todo: "read",
       isDone: false,
     },
-  ];
-  console.log(todoItem);
+  ]);
+  console.log(todo);
+
+  //create function to submit my todo input. Not dynamic yet.
+  function handleSubmitButton(e) {
+    e.preventDefault();
+    const newTodoItem = e.target.todo.value;
+    const newTodoItems = [
+      ...todo,
+      {
+        todo: newTodoItem,
+        isDone: false,
+      },
+    ];
+    console.log(newTodoItem);
+    setTodo(newTodoItems);
+    e.target.reset();
+  }
 
   return (
     <div className="App">
-      <h1>Todo App</h1>
-      <Input />
-      <Button />
-      <ListItems />
+      <Header text="Todo app" />
+      <InputBar onSubmit={handleSubmitButton} name="Add" />
+      <ListItems items={todo} />
     </div>
   );
 }
