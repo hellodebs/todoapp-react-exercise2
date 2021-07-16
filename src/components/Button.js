@@ -1,3 +1,3 @@
-export default function Button() {
-  return <button>Add</button>;
+export default function Button({ handleClickButton }) {
+  return <button onClick={handleClickButton}>Add</button>;
 }
