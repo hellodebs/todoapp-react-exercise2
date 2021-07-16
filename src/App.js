@@ -6,23 +6,22 @@ import Header from "./components/Header.js";
 
 function App() {
   const [todo, setTodo] = useState([
-    {
-      id: 1,
-      todo: "clean",
-      isDone: false,
-    },
-    {
-      id: 2,
-      todo: "homework",
-      isDone: false,
-    },
-    {
-      id: 3,
-      todo: "read",
-      isDone: false,
-    },
+    // {
+    //   id: 1,
+    //   todo: "clean",
+    //   isDone: false,
+    // },
+    // {
+    //   id: 2,
+    //   todo: "homework",
+    //   isDone: false,
+    // },
+    // {
+    //   id: 3,
+    //   todo: "read",
+    //   isDone: false,
+    // },
   ]);
-  console.log(todo);
 
   //create function to submit my todo input. Not dynamic yet.
   function handleSubmitButton(e) {
@@ -31,11 +30,10 @@ function App() {
     const newTodoItems = [
       ...todo,
       {
-        todo: newTodoItem,
+        todos: newTodoItem,
         isDone: false,
       },
     ];
-    console.log(newTodoItem);
     setTodo(newTodoItems);
     e.target.reset();
   }

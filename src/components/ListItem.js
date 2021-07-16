@@ -1,3 +1,9 @@
+import "./ListItems.css";
+
 export default function ListItem({ item }) {
-  return <li>{item.todo}</li>;
+  return (
+    <li className={(item.isDone = false ? "listitem--is-done" : "")}>
+      {item.todos}
+    </li>
+  );
 }
