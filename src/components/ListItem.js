@@ -1,8 +1,13 @@
 import "./ListItems.css";
 
-export default function ListItem({ item }) {
+export default function ListItem({ item, itemClickHandler }) {
   return (
-    <li className={(item.isDone = false ? "listitem--is-done" : "")}>
+    <li
+      onClick={() => {
+        itemClickHandler(item.id);
+      }}
+      className={item.isDone === true ? "listitem--is-done" : ""}
+    >
       {item.todos}
     </li>
   );

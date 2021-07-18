@@ -3,6 +3,7 @@ import InputBar from "./components/InputBar.js";
 import ListItems from "./components/ListItems.js";
 import { useState } from "react";
 import Header from "./components/Header.js";
+import uuid from "react-uuid";
 
 function App() {
   const [todo, setTodo] = useState([
@@ -30,6 +31,7 @@ function App() {
     const newTodoItems = [
       ...todo,
       {
+        id: uuid(),
         todos: newTodoItem,
         isDone: false,
       },
@@ -38,11 +40,23 @@ function App() {
     e.target.reset();
   }
 
+  //create function to map through current state (todo) and create new variable. Add possibility to click on todo item for linethrough.
+  function handleItemClick(id) {
+    // console.log(id);
+    const editedItems = todo.map((item) => {
+      if (id === item.id) {
+        item.isDone = !item.isDone;
+      }
+      return item;
+    });
+    setTodo(editedItems);
+  }
+
   return (
-    <div className="App">
+    <div className="app">
       <Header text="Todo app" />
       <InputBar onSubmit={handleSubmitButton} name="Add" />
-      <ListItems items={todo} />
+      <ListItems items={todo} itemClickHandler={handleItemClick} />
     </div>
   );
 }
