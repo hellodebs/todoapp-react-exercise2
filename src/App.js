@@ -3,26 +3,26 @@ import InputBar from "./components/InputBar.js";
 import ListItems from "./components/ListItems.js";
 import { useState } from "react";
 import Header from "./components/Header.js";
+import uuid from "react-uuid";
 
 function App() {
   const [todo, setTodo] = useState([
-    {
-      id: 1,
-      todo: "clean",
-      isDone: false,
-    },
-    {
-      id: 2,
-      todo: "homework",
-      isDone: false,
-    },
-    {
-      id: 3,
-      todo: "read",
-      isDone: false,
-    },
+    // {
+    //   id: 1,
+    //   todo: "clean",
+    //   isDone: false,
+    // },
+    // {
+    //   id: 2,
+    //   todo: "homework",
+    //   isDone: false,
+    // },
+    // {
+    //   id: 3,
+    //   todo: "read",
+    //   isDone: false,
+    // },
   ]);
-  console.log(todo);
 
   //create function to submit my todo input. Not dynamic yet.
   function handleSubmitButton(e) {
@@ -31,20 +31,32 @@ function App() {
     const newTodoItems = [
       ...todo,
       {
-        todo: newTodoItem,
+        id: uuid(),
+        todos: newTodoItem,
         isDone: false,
       },
     ];
-    console.log(newTodoItem);
     setTodo(newTodoItems);
     e.target.reset();
   }
 
+  //create function to map through current state (todo) and create new variable. Add possibility to click on todo item for linethrough.
+  function handleItemClick(id) {
+    // console.log(id);
+    const editedItems = todo.map((item) => {
+      if (id === item.id) {
+        item.isDone = !item.isDone;
+      }
+      return item;
+    });
+    setTodo(editedItems);
+  }
+
   return (
-    <div className="App">
+    <div className="app">
       <Header text="Todo app" />
       <InputBar onSubmit={handleSubmitButton} name="Add" />
-      <ListItems items={todo} />
+      <ListItems items={todo} itemClickHandler={handleItemClick} />
     </div>
   );
 }
