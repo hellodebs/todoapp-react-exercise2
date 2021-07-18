@@ -1,6 +1,10 @@
 import "./ListItems.css";
 
-export default function ListItem({ item, itemClickHandler }) {
+export default function ListItem({
+  item,
+  itemClickHandler,
+  buttonClickHandler,
+}) {
   return (
     <li
       onClick={() => {
@@ -9,6 +13,14 @@ export default function ListItem({ item, itemClickHandler }) {
       className={item.isDone === true ? "listitem--is-done" : ""}
     >
       {item.todos}
+      <button
+        onClick={(clickEvent) => {
+          clickEvent.stopPropagation();
+          buttonClickHandler(item.id);
+        }}
+      >
+        Delete
+      </button>
     </li>
   );
 }

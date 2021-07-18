@@ -52,11 +52,23 @@ function App() {
     setTodo(editedItems);
   }
 
+  //create function to filter through todo items so selected todo-items get deleted.
+  function handleButtonClick(id) {
+    const deletedItems = todo.filter((item) => {
+      return id !== item.id;
+    });
+    setTodo(deletedItems);
+  }
+
   return (
     <div className="app">
       <Header text="Todo app" />
       <InputBar onSubmit={handleSubmitButton} name="Add" />
-      <ListItems items={todo} itemClickHandler={handleItemClick} />
+      <ListItems
+        items={todo}
+        itemClickHandler={handleItemClick}
+        buttonClickHandler={handleButtonClick}
+      />
     </div>
   );
 }
