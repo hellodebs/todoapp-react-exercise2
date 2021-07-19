@@ -16,5 +16,5 @@ export default function ListItems({
     );
   });
 
-  return <ul>{liItem}</ul>;
+  return <ol>{liItem}</ol>;
 }

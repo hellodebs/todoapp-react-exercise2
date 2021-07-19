@@ -36,6 +36,7 @@ function App() {
         isDone: false,
       },
     ];
+    // console.log(newTodoItems);
     setTodo(newTodoItems);
     e.target.reset();
   }
@@ -64,15 +65,16 @@ function App() {
     <div className="app">
       <Header text="Todo app" />
       <InputBar onSubmit={handleSubmitButton} name="Add" />
-      <ListItems
-        items={todo}
-        itemClickHandler={handleItemClick}
-        buttonClickHandler={handleButtonClick}
-      />
+      <main>
+        <ListItems
+          items={todo}
+          itemClickHandler={handleItemClick}
+          buttonClickHandler={handleButtonClick}
+        />
+      </main>
+      <footer>Made with 🖤 by Debora</footer>
     </div>
   );
 }
 
 export default App;
-
-/* I have 2 components: Input and button */

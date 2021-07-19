@@ -1,4 +1,5 @@
-import "./ListItems.css";
+import "./ListItem.css";
+import { GiTrashCan } from "react-icons/gi";
 
 export default function ListItem({
   item,
@@ -13,13 +14,15 @@ export default function ListItem({
       className={item.isDone === true ? "listitem--is-done" : ""}
     >
       {item.todos}
+
       <button
+        className="delete-button"
         onClick={(clickEvent) => {
           clickEvent.stopPropagation();
           buttonClickHandler(item.id);
         }}
       >
-        Delete
+        <GiTrashCan />
       </button>
     </li>
   );

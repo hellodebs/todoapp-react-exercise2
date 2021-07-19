@@ -1,3 +1,11 @@
+import "./Header.css";
+
 export default function Header({ text }) {
-  return <h1>{text}</h1>;
+  return (
+    <>
+      <header>
+        <h1>{text}</h1>
+      </header>
+    </>
+  );
 }
