@@ -36,6 +36,7 @@ function App() {
         isDone: false,
       },
     ];
+    // console.log(newTodoItems);
     setTodo(newTodoItems);
     e.target.reset();
   }
@@ -77,5 +78,3 @@ function App() {
 }
 
 export default App;
-
-/* I have 2 components: Input and button */
