@@ -71,6 +71,7 @@ function App() {
           buttonClickHandler={handleButtonClick}
         />
       </main>
+      <footer>Made with 🖤 by Debora</footer>
     </div>
   );
 }
