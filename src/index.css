@@ -3,18 +3,11 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   padding-top: 90px;
-  /*display: grid;
-   grid-template-areas: "header" "main";
-  grid-template-rows: auto 1fr;
-  grid-template-columns: 1fr;
-  height: 100vh; */
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCy-Ok43-O9OwYK08JSEkODUMI1r2ExNg4cy4DO_rVUMotHUNxsk5VijJiAtoEL0wFGZ4&usqp=CAU");
+  background-position: fixed;
+
+  color: black;
 }
-/* 
-body > main {
-  grid-area: "main";
-  padding: 15px 5px 10px 5px;
-  overflow: auto;
-} */
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
