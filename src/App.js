@@ -28,6 +28,9 @@ function App() {
   function handleSubmitButton(e) {
     e.preventDefault();
     const newTodoItem = e.target.todo.value;
+    if (newTodoItem === "") {
+      return;
+    }
     const newTodoItems = [
       ...todo,
       {
@@ -36,6 +39,7 @@ function App() {
         isDone: false,
       },
     ];
+
     // console.log(newTodoItems);
     setTodo(newTodoItems);
     e.target.reset();
@@ -63,7 +67,7 @@ function App() {
 
   return (
     <div className="app">
-      <Header text="Todo app" />
+      <Header text="Todo App" />
       <InputBar onSubmit={handleSubmitButton} name="Add" />
       <main>
         <ListItems
